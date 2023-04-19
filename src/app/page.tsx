@@ -1,16 +1,16 @@
 import { Inter } from 'next/font/google';
 import { queryMeals } from '@/fns';
-import { RFC } from '@/types';
 import MealsList from './components/MealsList';
 import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const Home: RFC<Props> = async ({ searchParams }) => {
+export default async function Home({ searchParams }: Props) {
     const meals = await queryMeals(searchParams?.q);
 
     return (
         <main className='flex min-h-screen flex-col p-24 max-sm:p-4 bg-gray-100'>
+            <h1 className='text-3xl font-medium text-center mb-4'>What would you like to cook today?</h1>
             <form className='flex flex-col justify-center items-center mb-6'>
                 <input name='q' className='shadow-md focus:shadow-lg w-96 max-w-full text-2xl p-2 outline-none mb-6' />
                 <div>
@@ -34,10 +34,8 @@ const Home: RFC<Props> = async ({ searchParams }) => {
             </div>
         </main>
     );
-};
+}
 
 interface Props {
     searchParams: { q?: string };
 }
-
-export default Home;
