@@ -1,6 +1,7 @@
 import { Meal } from '@/types';
 import { FC } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const blurDataUrl =
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAACJJREFUKFNjnDhx4n8GIgDjqEJ8oUR68DAxMTH8+/cPp6EA0PQd/6MyIfgAAAAASUVORK5CYII=';
@@ -21,9 +22,9 @@ const MealsList: FC<Props> = ({ meals }) => {
     );
 };
 
-const Meal: FC<Meal> = ({ strMeal, strMealThumb, strCategory }) => {
+const Meal: FC<Meal> = ({ idMeal, strMeal, strMealThumb, strCategory }) => {
     return (
-        <div className='m-4 w-[250px]'>
+        <Link href={`/${idMeal}`} className='m-4 w-[250px]'>
             <Image
                 src={strMealThumb}
                 alt={`Image of ${strMeal}`}
@@ -35,7 +36,7 @@ const Meal: FC<Meal> = ({ strMeal, strMealThumb, strCategory }) => {
             />
             <h2 className='font-semibold text-xl mt-2'>{strMeal}</h2>
             <p className='text-gray-400'>{strCategory}</p>
-        </div>
+        </Link>
     );
 };
 
