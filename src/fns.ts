@@ -19,8 +19,8 @@ const querySelection = async () => {
     return data.meals as Meal[];
 };
 
-const queryRandomMeal = async () => {
-    const response = await fetch(`${MEALS_API_PATH}/random.php`);
+export const queryMealById = async (id: string) => {
+    const response = await fetch(`${MEALS_API_PATH}/lookup.php?i=${id}`);
     const data = await response.json();
-    return data.meals as Meal[];
+    return data.meals as Meal[] | null;
 };
