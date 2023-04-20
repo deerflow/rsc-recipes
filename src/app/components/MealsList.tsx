@@ -22,7 +22,7 @@ const MealsList: FC<Props> = ({ meals }) => {
     );
 };
 
-const Meal: FC<Meal> = ({ idMeal, strMeal, strMealThumb, strCategory }) => {
+const Meal: FC<Meal> = ({ idMeal, strMeal, strMealThumb, strCategory, strArea }) => {
     return (
         <Link href={`/${idMeal}`} className='m-4 w-[250px]'>
             <Image
@@ -35,7 +35,9 @@ const Meal: FC<Meal> = ({ idMeal, strMeal, strMealThumb, strCategory }) => {
                 blurDataURL={blurDataUrl}
             />
             <h2 className='font-semibold text-xl mt-2'>{strMeal}</h2>
-            <p className='text-gray-400'>{strCategory}</p>
+            <p className='text-gray-400'>
+                {strCategory} @{strArea}
+            </p>
         </Link>
     );
 };
