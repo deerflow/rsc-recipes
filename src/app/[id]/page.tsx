@@ -8,12 +8,12 @@ export default async function MealDetails({ params }: Props) {
 
     const meal = meals[0];
     const measures = (
-        Object.entries(meal).filter(([key, measure]) => key.includes('strMeasure') && measure.trim()) as [
+        Object.entries(meal).filter(([key, measure]) => key.includes('strMeasure') && measure?.trim()) as [
             [string, string]
         ]
     ).map(([key, measure]) => measure.trim());
     const ingredients = (
-        Object.entries(meal).filter(([key, ingredient]) => key.includes('strIngredient') && ingredient.trim()) as [
+        Object.entries(meal).filter(([key, ingredient]) => key.includes('strIngredient') && ingredient?.trim()) as [
             [string, string]
         ]
     ).map(([key, ingredient]) => ingredient.trim());
