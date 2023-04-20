@@ -33,6 +33,7 @@ const Meal: FC<Meal> = ({ idMeal, strMeal, strMealThumb, strCategory, strArea })
                 className='rounded-2xl shadow-sm'
                 placeholder='blur'
                 blurDataURL={blurDataUrl}
+                unoptimized
             />
             <h2 className='font-semibold text-xl mt-2'>{strMeal}</h2>
             <p className='text-gray-400'>
